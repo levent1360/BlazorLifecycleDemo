@@ -1,0 +1,24 @@
+﻿@rendermode InteractiveServer
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+
+<p role="status">Current count: @CurrentCount</p>
+<CounterChildChild CurrentCount2="CurrentCount"></CounterChildChild>
+
+
+@code {
+    [Parameter]
+    public int CurrentCount { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Console.WriteLine($"OnInitialized - CurrentCount: {CurrentCount}");
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        Console.WriteLine($"OnParametersSetAsync - CurrentCount: {CurrentCount}");
+    }
+}
